@@ -1,0 +1,48 @@
+;; -*- mode: beancount; coding: utf-8; fill-column: 400 -*-
+description: Regular purchase or sale, with expense
+number_entries: 4
+
+2017-01-14 * "Buy MSFT"
+  signature: "ASSET_CASH_EXPENSES"
+  Assets:Investing:CSchwab:MSFT       80 MSFT {62 USD, 2017-01-14}
+    category: Cat.ASSET
+  Expenses:Investing:CSchwab:Fees      5 USD
+    category: Cat.EXPENSES
+  Assets:Investing:CSchwab:Cash    -5005 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2017, 1, 14), amount=-5005 USD, is_dividend=False, source='cash', account='Assets:Investing:CSchwab:MSFT')
+
+
+2017-03-05 * "Buy MSFT"
+  signature: "ASSET_CASH_EXPENSES"
+  Assets:Investing:CSchwab:MSFT       50 MSFT {40 USD, 2017-03-05}
+    category: Cat.ASSET
+  Expenses:Investing:CSchwab:Fees      5 USD
+    category: Cat.EXPENSES
+  Assets:Investing:CSchwab:Cash    -2005 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2017, 3, 5), amount=-2005 USD, is_dividend=False, source='cash', account='Assets:Investing:CSchwab:MSFT')
+
+
+2017-04-07 * "Buy KO"
+  signature: "ASSET_CASH_EXPENSES"
+  Assets:Investing:CSchwab:KO         200 KO {50 USD, 2017-04-07}
+    category: Cat.ASSET
+  Expenses:Investing:CSchwab:Fees       5 USD
+    category: Cat.EXPENSES
+  Assets:Investing:CSchwab:Cash    -10005 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2017, 4, 7), amount=-10005 USD, is_dividend=False, source='cash', account='Assets:Investing:CSchwab:KO')
+
+
+2019-01-01 * "Buy FB"
+  signature: "ASSET_CASH_EXPENSES"
+  Assets:Investing:InterBr:FB         40 FB {125 USD, 2019-01-01}
+    category: Cat.ASSET
+  Expenses:Investing:InterBr:Fees      5 USD
+    category: Cat.EXPENSES
+  Assets:Investing:InterBr:Cash    -5005 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2019, 1, 1), amount=-5005 USD, is_dividend=False, source='cash', account='Assets:Investing:InterBr:FB')
+
+

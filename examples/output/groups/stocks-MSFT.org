@@ -1,0 +1,8 @@
+* stocks-MSFT
+** Cash Flows
+
+         date  amount currency  is_dividend source                     investment
+0  2017-01-14 -5005.0      USD        False   cash  Assets:Investing:CSchwab:MSFT
+1  2017-03-05 -2005.0      USD        False   cash  Assets:Investing:CSchwab:MSFT
+2  2019-01-03  7039.5      USD        False   cash  Assets:Investing:CSchwab:MSFT
+3  2019-01-03  4399.5      USD        False   cash  Assets:Investing:CSchwab:MSFT

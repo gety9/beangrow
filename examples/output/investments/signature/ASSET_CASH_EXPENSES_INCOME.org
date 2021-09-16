@@ -1,0 +1,30 @@
+;; -*- mode: beancount; coding: utf-8; fill-column: 400 -*-
+description: Regular purchase or sale, with expense and P/L
+number_entries: 2
+
+2019-01-03 * "Sell MSFT"
+  signature: "ASSET_CASH_EXPENSES_INCOME"
+  Assets:Investing:CSchwab:MSFT      -80 MSFT {62 USD, 2017-01-14} @ 88.00 USD
+    category: Cat.ASSET
+  Expenses:Investing:CSchwab:Fees      0 USD
+    category: Cat.EXPENSES
+  Income:Investing:CSchwab:Gains   -2040 USD
+    category: Cat.INCOME
+  Assets:Investing:CSchwab:Cash     7040 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2019, 1, 3), amount=7039.50 USD, is_dividend=False, source='cash', account='Assets:Investing:CSchwab:MSFT')
+
+
+2019-01-03 * "Sell MSFT"
+  signature: "ASSET_CASH_EXPENSES_INCOME"
+  Assets:Investing:CSchwab:MSFT      -50 MSFT {40 USD, 2017-03-05} @ 88.00 USD
+    category: Cat.ASSET
+  Expenses:Investing:CSchwab:Fees      0 USD
+    category: Cat.EXPENSES
+  Income:Investing:CSchwab:Gains   -2400 USD
+    category: Cat.INCOME
+  Assets:Investing:CSchwab:Cash     4400 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2019, 1, 3), amount=4399.50 USD, is_dividend=False, source='cash', account='Assets:Investing:CSchwab:MSFT')
+
+

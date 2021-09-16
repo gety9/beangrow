@@ -1,0 +1,31 @@
+;; -*- mode: beancount; coding: utf-8; fill-column: 400 -*-
+description: Cash dividend
+number_entries: 3
+
+2017-08-09 * "KO Dividend"
+  signature: "CASH_DIVIDEND"
+  Assets:Investing:CSchwab:Cash           350 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2017, 8, 9), amount=350 USD, is_dividend=True, source='cash', account='Assets:Investing:CSchwab:KO')
+  Income:Investing:CSchwab:KO:Dividends  -350 USD
+    category: Cat.DIVIDEND
+
+
+2018-07-01 * "KO Dividend"
+  signature: "CASH_DIVIDEND"
+  Assets:Investing:CSchwab:Cash           450 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2018, 7, 1), amount=450 USD, is_dividend=True, source='cash', account='Assets:Investing:CSchwab:KO')
+  Income:Investing:CSchwab:KO:Dividends  -450 USD
+    category: Cat.DIVIDEND
+
+
+2019-11-25 * "KO Dividend"
+  signature: "CASH_DIVIDEND"
+  Assets:Investing:CSchwab:Cash           550 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2019, 11, 25), amount=550 USD, is_dividend=True, source='cash', account='Assets:Investing:CSchwab:KO')
+  Income:Investing:CSchwab:KO:Dividends  -550 USD
+    category: Cat.DIVIDEND
+
+

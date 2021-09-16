@@ -1,0 +1,216 @@
+;; -*- mode: org; mode: beancount; coding: utf-8; fill-column: 400; -*-
+option "title" "sample ledger"
+option "operating_currency" "USD"
+plugin "beancount.plugins.check_commodity"
+plugin "beancount.plugins.implicit_prices"
+
+* Personal Checking
+2017-01-01 open Assets:Personal:Checking                USD
+
+* Commodities
+2017-01-01 commodity USD
+2017-01-14 commodity MSFT
+2017-04-07 commodity KO
+2019-01-01 commodity FB
+
+* Investing CSchwab
+2017-01-01 open Assets:Investing:CSchwab:Cash           USD
+2017-01-01 open Income:Investing:CSchwab:Interest       USD
+2017-01-01 open Income:Investing:CSchwab:Gains          USD
+2017-01-01 open Expenses:Investing:CSchwab:Fees         USD
+
+** Open/Closed Positions
+2017-01-14 open Assets:Investing:CSchwab:MSFT           MSFT
+
+2017-04-07 open Assets:Investing:CSchwab:KO             KO
+2017-04-07 open Income:Investing:CSchwab:KO:Dividends   USD
+
+** Activity
+2017-01-14 * "Bank to Brokerage Transfer"
+  Assets:Investing:CSchwab:Cash                    5005 USD
+  Assets:Personal:Checking
+
+2017-01-14 * "Buy MSFT"
+  Assets:Investing:CSchwab:MSFT                      80 MSFT {62.50 USD, 2017-01-14}
+  Expenses:Investing:CSchwab:Fees                     5 USD
+  Assets:Investing:CSchwab:Cash                   -5005 USD                                                    
+
+2017-03-05 * "Bank to Brokerage Transfer"
+  Assets:Investing:CSchwab:Cash                    2005 USD
+  Assets:Personal:Checking
+
+2017-03-05 * "Buy MSFT"
+  Assets:Investing:CSchwab:MSFT                      50 MSFT {40 USD, 2017-03-05}
+  Expenses:Investing:CSchwab:Fees                     5 USD
+  Assets:Investing:CSchwab:Cash                   -2005 USD                                                    
+
+2017-04-07 * "Bank to Brokerage Transfer"
+  Assets:Investing:CSchwab:Cash                   10005 USD
+  Assets:Personal:Checking
+
+2017-04-07 * "Buy KO"
+  Assets:Investing:CSchwab:KO                        200 KO {50 USD, 2017-04-07}
+  Expenses:Investing:CSchwab:Fees                     5 USD
+  Assets:Investing:CSchwab:Cash                  -10005 USD
+
+2017-08-09 * "KO Dividend"
+  Assets:Investing:CSchwab:Cash                    350 USD
+  Income:Investing:CSchwab:KO:Dividends
+
+2018-07-01 * "KO Dividend"
+  Assets:Investing:CSchwab:Cash                    450 USD
+  Income:Investing:CSchwab:KO:Dividends
+
+2019-01-03 * "Sell MSFT"
+  Assets:Investing:CSchwab:MSFT                    -80 MSFT {62.50 USD, 2017-01-14} @88
+  Expenses:Investing:CSchwab:Fees                  0.5 USD
+  Income:Investing:CSchwab:Gains                 -2040 USD
+  Assets:Investing:CSchwab:Cash                7039.50 USD                                                    
+
+2019-01-03 * "Sell MSFT"
+  Assets:Investing:CSchwab:MSFT                    -50 MSFT {40 USD, 2017-03-05} @88
+  Expenses:Investing:CSchwab:Fees                  0.5 USD
+  Income:Investing:CSchwab:Gains                 -2400 USD
+  Assets:Investing:CSchwab:Cash                4399.50 USD                                                    
+
+2019-11-25 * "KO Dividend"
+  Assets:Investing:CSchwab:Cash                    550 USD
+  Income:Investing:CSchwab:KO:Dividends
+
+* Investing IB
+2018-01-01 open Assets:Investing:InterBr:Cash           USD
+2018-01-01 open Income:Investing:InterBr:Interest       USD
+2018-01-01 open Income:Investing:InterBr:Gains          USD
+2018-01-01 open Expenses:Investing:InterBr:Fees         USD
+
+** Open/Closed Positions
+2019-01-01 open Assets:Investing:InterBr:FB             FB
+
+** Activity
+2018-01-01 * "Bank to Brokerage Transfer"
+  Assets:Investing:InterBr:Cash                   25005 USD
+  Assets:Personal:Checking
+
+2019-01-01 * "Buy FB"
+  Assets:Investing:InterBr:FB                        40 FB {125 USD, 2019-01-01}
+  Expenses:Investing:InterBr:Fees                     5 USD
+  Assets:Investing:InterBr:Cash                   -5005 USD
+
+* Prices
+2017-02-01 price MSFT                                55 USD
+2017-03-01 price MSFT                                45 USD
+2017-04-01 price MSFT                                40 USD
+2017-05-01 price MSFT                                35 USD
+2017-05-01 price KO                                  50 USD
+2017-06-01 price MSFT                                40 USD
+2017-06-01 price KO                                  50 USD
+2017-07-01 price MSFT                                41 USD
+2017-07-01 price KO                                  51 USD
+2017-08-01 price MSFT                                44 USD
+2017-08-01 price KO                                  50 USD
+2017-09-01 price MSFT                                43 USD
+2017-09-01 price KO                                  49 USD
+2017-10-01 price MSFT                                48 USD
+2017-10-01 price KO                                  50 USD
+2017-11-01 price MSFT                                42 USD
+2017-11-01 price KO                                  51 USD
+2017-12-01 price MSFT                                41 USD
+2017-12-01 price KO                                  50 USD
+2018-01-01 price MSFT                                44 USD
+2018-01-01 price KO                                  49 USD
+2018-02-01 price MSFT                                48 USD
+2018-02-01 price KO                                  50 USD
+2018-03-01 price MSFT                                50 USD
+2018-03-01 price KO                                  51 USD
+2018-04-01 price MSFT                                51 USD
+2018-04-01 price KO                                  50 USD
+2018-05-01 price MSFT                                50 USD
+2018-05-01 price KO                                  49 USD
+2018-06-01 price MSFT                                55 USD
+2018-06-01 price KO                                  50 USD
+2018-07-01 price MSFT                                57 USD
+2018-07-01 price KO                                  51 USD
+2018-08-01 price MSFT                                65 USD
+2018-08-01 price KO                                  50 USD
+2018-09-01 price MSFT                                77 USD
+2018-09-01 price KO                                  49 USD
+2018-10-01 price MSFT                                80 USD
+2018-10-01 price KO                                  50 USD
+2018-11-01 price MSFT                                82 USD
+2018-11-01 price KO                                  51 USD
+2018-12-01 price MSFT                                83 USD
+2018-12-01 price KO                                  50 USD
+2019-01-01 price MSFT                                88 USD
+2019-01-01 price KO                                  49 USD
+2019-01-01 price FB                                 130 USD
+2019-02-01 price KO                                  50 USD
+2019-02-01 price FB                                 132 USD
+2019-03-01 price KO                                  51 USD
+2019-03-01 price FB                                 133 USD
+2019-04-01 price KO                                  50 USD
+2019-04-01 price FB                                 135 USD
+2019-05-01 price KO                                  49 USD
+2019-05-01 price FB                                 134 USD
+2019-06-01 price KO                                  50 USD
+2019-06-01 price FB                                 136 USD
+2019-07-01 price KO                                  51 USD
+2019-07-01 price FB                                 138 USD
+2019-08-01 price KO                                  50 USD
+2019-08-01 price FB                                 140 USD
+2019-09-01 price KO                                  49 USD
+2019-09-01 price FB                                 141 USD
+2019-10-01 price KO                                  50 USD
+2019-10-01 price FB                                 143 USD
+2019-11-01 price KO                                  51 USD
+2019-11-01 price FB                                 145 USD
+2019-12-01 price KO                                  50 USD
+2019-12-01 price FB                                 147 USD
+2020-01-01 price KO                                  49 USD
+2020-01-01 price FB                                 150 USD
+
+* <> Explanation / Tips
+;-plugin "beancount.plugins.check_commodity"
+; enforces commodity declarations which are optional in beancount / fava
+; but required for beangrow
+;
+;-"beancount.plugins.implicit_prices"
+; gets price from buy/sell transactions of your investments
+; (less to enter into "Prices" manually)
+;
+;-be careful with account names, any account ending with declared commodity 
+; code can be picked up by configure.py when generating config file
+; (having Assets:Business:MyCompany:SQ and Assets:Investing:CSchwab:SQ
+; may confuse configure.py and it's better to rename former 
+; to Assets:Business:MyCompany:Square)
+;
+;-verification
+; after initial set-up one might like to double check that calculated return
+; make sense, here is quick example of how math works:
+;
+; [stocks-KO]
+; 2017 Total return (Total)
+;    2017-04-07 cash outflow -10,005 (stock purchase)
+;    2017-08-09 cash inflow      350 (dividend)
+;    2018-01-01 cash inflow of 200 x 49 = 9,800 (stock sale simulation)
+;    Beangrow shows Return of 2.0%, let check if present value of cash flows
+;    summ up to zero at this rate:
+;       - 10,005 / (1+0.020) ^ (0/365)   = -10,005
+;       +    350 / (1+0.020) ^ (124/365) =     347.7
+;       +  9,800 / (1+0.020) ^ (269/365) =   9,658.0
+;       = ~0.70 which is close to 0.                                
+; 2017 Capital gains return (Ex-div)
+;    2017-04-07 cash outflow -10,005 (stock purchase)
+;    2018-01-01 cash inflow of 200 x 49 = 9,800 (stock sale simulation)
+;    At return of -2.8% similarly to above we get:
+;       - 10,005 / (1-0.028) ^ (0/365)   = -10,005
+;       +  9,800 / (1-0.028) ^ (269/365) =  10,007.3 
+;       = ~2.3 which is close to 0.
+;
+; [stocks-MSFT]
+; 2018 Total return (Total)
+;    2018-01-01 cash outflow of 130 x 44 = - 5,720 (stock purchase simulation)
+;    2019-01-01 cash inflow of 130 x 88  =  11,440 (stock sale simulation)
+;    At return of 100% similarly to above we get:
+;       - 5,720  / (1+1.00) ^ (0/365)   = -5,720
+;       + 11,440 / (1+1.00) ^ (365/365) =  5,720
+;       = 0.

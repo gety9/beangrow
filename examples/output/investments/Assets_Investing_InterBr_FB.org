@@ -1,0 +1,36 @@
+;; -*- mode: beancount; coding: utf-8; fill-column: 400 -*-
+* Summary
+
+Account: Assets:Investing:InterBr:FB
+Balance: (40 FB)
+** Category map
+
+
+{'Assets:Investing:InterBr:Cash': <Cat.CASH: 2>,
+ 'Assets:Investing:InterBr:FB': <Cat.ASSET: 1>,
+ 'Expenses:Investing:InterBr:Fees': <Cat.EXPENSES: 4>}
+
+
+
+** Transactions
+
+2019-01-01 * "Buy FB"
+  signature: "ASSET_CASH_EXPENSES"
+  Assets:Investing:InterBr:FB         40 FB {125 USD, 2019-01-01}
+    category: Cat.ASSET
+  Expenses:Investing:InterBr:Fees      5 USD
+    category: Cat.EXPENSES
+  Assets:Investing:InterBr:Cash    -5005 USD
+    category: Cat.CASH
+    flow: CashFlow(date=datetime.date(2019, 1, 1), amount=-5005 USD, is_dividend=False, source='cash', account='Assets:Investing:InterBr:FB')
+
+
+
+
+** Cash flows
+
+         date  amount currency  is_dividend source                   investment
+0  2019-01-01 -5005.0      USD        False   cash  Assets:Investing:InterBr:FB
+
+
+

@@ -1,0 +1,48 @@
+investments {
+  investment {
+    currency: "KO"
+    asset_account: "Assets:Investing:CSchwab:KO"
+    dividend_accounts: "Income:Investing:CSchwab:KO:Dividends"
+    cash_accounts: "Assets:Investing:CSchwab:Cash"
+  }
+  investment {
+    currency: "MSFT"
+    asset_account: "Assets:Investing:CSchwab:MSFT"
+    cash_accounts: "Assets:Investing:CSchwab:Cash"
+  }
+  investment {
+    currency: "FB"
+    asset_account: "Assets:Investing:InterBr:FB"
+    cash_accounts: "Assets:Investing:InterBr:Cash"
+  }
+}
+groups {
+  group {
+    name: "all"
+    investment: "Assets:Investing:InterBr:FB"
+    investment: "Assets:Investing:CSchwab:KO"
+    investment: "Assets:Investing:CSchwab:MSFT"
+  }
+  group {
+    name: "strategy-growth"
+    investment: "Assets:Investing:InterBr:FB"
+    investment: "Assets:Investing:CSchwab:MSFT"
+  }
+  group {
+    name: "strategy-value"
+    investment: "Assets:Investing:CSchwab:KO"
+  }
+  group {
+    name: "stocks-FB"
+    investment: "Assets:Investing:InterBr:FB"
+  }
+  group {
+    name: "stocks-KO"
+    investment: "Assets:Investing:CSchwab:KO"
+  }
+  group {
+    name: "stocks-MSFT"
+    investment: "Assets:Investing:CSchwab:MSFT"
+  }
+}
+
